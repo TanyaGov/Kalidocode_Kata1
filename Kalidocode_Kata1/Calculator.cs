@@ -39,15 +39,30 @@ namespace Kalidocode_Kata1
             int indexOfN = input.IndexOf("n");
             string stringNumbers = input.Remove(0, indexOfN + 1);
 
-           
+            if (input.Contains("["))
+            {
+                int index = input.LastIndexOf(']'); string stringDelimiters = input.Substring(2, index + 1);
+                string[] arrDelimiters = stringDelimiters.Split(new string[] { "[", "]" }, StringSplitOptions.RemoveEmptyEntries);
+                string[] arrNumbers = stringNumbers.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
+                foreach (string number in arrNumbers)
+                {
+                    int num = int.Parse(number); if (num >= 0) { if (num < 1000) { sum += num; } }
+                    else { errorMessage += $"Negatives not allowed: {num}\n"; throw new Exception(errorMessage); }
+                }
+
+            }// multiple custom delimiters
+            else
+            {
                 string delimiter = input.Substring(2, (indexOfN - 3));
                 string[] arrNumbers = stringNumbers.Split(delimiter);
                 foreach (string number in arrNumbers)
                 {
                     int num = int.Parse(number); if (num >= 0) { if (num < 1000) { sum += num; } }
                     else { errorMessage += $"Negatives not allowed: {num}\n"; throw new Exception(errorMessage); }
-                } Console.WriteLine(sum);  
-            
+                }
+                Console.WriteLine(sum);
+            }
+
             return sum;
         }
     }//class
