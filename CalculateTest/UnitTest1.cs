@@ -50,8 +50,31 @@ namespace CalculateTest
             Assert.That(sum, Is.EqualTo(-1));
         }
 
+        [Test]
+        public void GivenCommasOnly_WhenAdded_Returns30()
+        {
+            var input = "8,2,20";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(30));
+        }
 
+        [Test]
+        public void GivenSlashNOnly_WhenAdded_Returns30()
+        {
+            var input = "8\\n2\\n20";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(30));
+        }
 
-
+        [Test]
+        public void GivenBothSlashNOnlyAndCommas_WhenAdded_Returns30()
+        {
+            var input = "8\\n2,20";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(30));
+        }
     }
 }
