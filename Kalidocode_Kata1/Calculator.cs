@@ -15,9 +15,11 @@ namespace Kalidocode_Kata1
             List<int> numbers = new List<int>();
             int length = input.Length; int sum = 0;
 
-            if (input == null || input.Contains(" ") || input.Contains("")) { return 0; } // null input >> automatically sum = 0
+            if (string.IsNullOrEmpty(input) || input.Contains(" ")) { return 0; } // null input >> automatically sum = 0
             if (input.Contains(",,") || input.Contains(",\\n") || input.Contains("\\n,")) { throw new Exception("Incorrect format of numbers"); }
-            return -1;
+
+            try { sum = int.Parse(input); return sum; } catch { return -1; }
+           
         }
     }
 }

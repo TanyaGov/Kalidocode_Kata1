@@ -2,10 +2,11 @@
 {
     public class Program
     {
+        public static string? input = null;
         public static void Main(string[] args)
         {
-            Console.WriteLine("Please enter a String containing the numbers you want to add, seperated by a character, such as ',' ");
-            string? input = Console.ReadLine();
+            Console.WriteLine("Please enter a String containing the numbers you want to add, seperated by a character, such as ','");
+            input = Console.ReadLine();
 
             Calculator calculator = new Calculator();
 
