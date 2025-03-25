@@ -94,5 +94,32 @@ namespace CalculateTest
             var sum = calculator.Add(input);
             Assert.That(sum, Is.EqualTo(572));
         }
+
+        [Test]
+        public void Given3CustomDelimiters_WhenUsingAll3_Returns24()
+        {
+            var input = "//[***][&][%]\\n8***8&4%4";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(24));
+        }
+
+        [Test]
+        public void Given3CustomDelimiters_WhenUsing2_Returns24()
+        {
+            var input = "//[***][&][%]\\n8***8&8";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(24));
+        }
+
+        [Test]
+        public void Given3CustomDelimiters_WhenUsing1Only_Returns20()
+        {
+            var input = "//[***][&][%]\\n8***8***4";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(20));
+        }
     }
 }
