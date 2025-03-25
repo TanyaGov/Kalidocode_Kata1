@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Kalidocode_Kata1
 {
-    class Calculator
+    public class Calculator
     {
         public static string errorMessage = "";
 
