@@ -11,7 +11,8 @@
             Calculator calculator = new Calculator();
 
             int sum = calculator.Add(input);
-            Console.WriteLine(sum);
+            Console.WriteLine($"Sum is: {sum}");
+
         }
     }
 }
