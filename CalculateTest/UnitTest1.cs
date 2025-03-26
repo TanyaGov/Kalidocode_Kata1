@@ -76,5 +76,23 @@ namespace CalculateTest
             var sum = calculator.Add(input);
             Assert.That(sum, Is.EqualTo(30));
         }
+
+        [Test]
+        public void GivenPercentageDelimiter_WhenAdded_Returns101()
+        {
+            var input = "//%\\n87%11%3";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(101));
+        }
+
+        [Test]
+        public void GivenStarDelimiter_WhenAdded_Returns572()
+        {
+            var input = "//*\\n150*22*400";
+            Calculator calculator = new Calculator();
+            var sum = calculator.Add(input);
+            Assert.That(sum, Is.EqualTo(572));
+        }
     }
 }
