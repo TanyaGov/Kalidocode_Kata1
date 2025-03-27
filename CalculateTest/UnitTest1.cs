@@ -9,7 +9,7 @@ namespace CalculateTest
         public void GivenNull_WhenAdded_ReturnsZero()
         {
             // Arrange
-            var input = "";
+            string input = " ";
             Calculator calculator = new Calculator();
 
             // Act

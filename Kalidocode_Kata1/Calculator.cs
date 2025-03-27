@@ -13,16 +13,16 @@ namespace Kalidocode_Kata1
             int sum = 0; // 7,9 9
             string error = "Negative numbers:";
 
-            if (string.IsNullOrEmpty(input) || input.Contains(" ") || input.Contains("")) { sum = 0; }
+            if (string.IsNullOrEmpty(input) || input.Contains(" ")) { sum = 0; return sum; }
 
             if (input.Contains("//"))
             {
                 int beforeSlash = 2;
-                int indexNextLine = input.IndexOf("\n");
+                int indexNextLine = input.IndexOf("\n");//98/n9
                 string delimiterString = input.Substring(beforeSlash, (indexNextLine - beforeSlash));
                 string numbersString = input.Substring(indexNextLine + 1);
 
-                if (input.Contains("[") &&  input.Contains("]")) 
+                if (delimiterString.Contains("[") && delimiterString.Contains("]")) 
                 {
                     string[] arrDelimiters = delimiterString.Split(new string[] { "[", "]" }, StringSplitOptions.RemoveEmptyEntries);
                     string[] arrNumbers = numbersString.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
