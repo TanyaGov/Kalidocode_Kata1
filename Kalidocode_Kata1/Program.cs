@@ -5,12 +5,18 @@
       
         public static void Main(string[] args)
         {
-            string line = ""; string input;
+            Console.WriteLine("Enter numbers:");
+
+            string line = ""; 
+            string input;
 
             while ((input = Console.ReadLine()) != null)
-            { line += input; }
+            { line += input + "\n"; }
 
-            Console.WriteLine(line);
+            Calculator calculator = new Calculator();   
+            int sum = calculator.Add(line);
+            Console.WriteLine(sum);
+            
         }
 
     }
