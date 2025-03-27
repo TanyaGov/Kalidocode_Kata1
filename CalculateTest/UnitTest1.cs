@@ -101,5 +101,43 @@ namespace CalculateTest
             Assert.That(sum, Is.EqualTo(572));
         }
 
+        [Test]
+        public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
+        {
+            //Arrange
+            var input = "//[***][&][%]\n8***8&4%4";
+            Calculator calculator = new Calculator();
+            //Act
+            var sum = calculator.Add(input);
+            //Assert
+            Assert.That(sum, Is.EqualTo(24));
+        }
+
+        [Test]
+        public void GivenOver1000_WhenAdded_ReturnsSumWithout1000()
+        {
+            //Arrange
+            var input = "1006,10,8";
+            Calculator calculator = new Calculator();
+            //Act
+            var sum = calculator.Add(input);
+            //Assert
+            Assert.That(sum, Is.EqualTo(18));
+        }
+
+        [Test]
+        public void GivenNegativeNumbers_WhenAdded_ReturnsError()
+        {
+            //Arrange
+            var input = "-4\n9\n7";
+            Calculator calculator = new Calculator();
+            //Act 
+            var ex = Assert.Throws<Exception>(() => calculator.Add(input));
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-4"));
+        }
+
+
+
     }
 }
