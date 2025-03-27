@@ -1,9 +1,8 @@
-﻿using Kalidocode_Kata1;
-
-namespace CalculateTest
+﻿namespace CalculateTest
 {
     public class Tests
     {
-
+        
+       
     }
 }
