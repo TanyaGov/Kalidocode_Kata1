@@ -9,7 +9,7 @@ namespace CalculateTest
         public void GivenEmpty_WhenAdded_ReturnsZero()
         {
             // Arrange
-            string input = " ";
+            var input = " ";
             Calculator calculator = new Calculator();
             // Act
             var sum = calculator.Add(input);

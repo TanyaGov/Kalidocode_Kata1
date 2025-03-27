@@ -18,7 +18,7 @@ namespace Kalidocode_Kata1
             if (input.Contains("//"))
             {
                 int beforeSlash = 2;
-                int indexNextLine = input.IndexOf("\n");//98/n9
+                int indexNextLine = input.IndexOf("\n");
                 string delimiterString = input.Substring(beforeSlash, (indexNextLine - beforeSlash));
                 string numbersString = input.Substring(indexNextLine + 1);
 
