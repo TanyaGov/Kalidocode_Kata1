@@ -13,7 +13,7 @@ namespace Kalidocode_Kata1
             int sum = 0; // 7,9 9
             string error = "Negative numbers:";
 
-            if (string.IsNullOrEmpty(input) || input.Contains(" ")) { sum = 0; }
+            if (string.IsNullOrEmpty(input) || input.Contains(" ") || input.Contains("")) { sum = 0; }
 
             if (input.Contains("//"))
             {
@@ -36,7 +36,6 @@ namespace Kalidocode_Kata1
                     if (!error.Equals("Negative numbers:")) { throw new Exception(error); }
                     return sum;
                 }
-
                 else
                 {
                     string[] arrNumbers = numbersString.Split(delimiterString);
@@ -50,8 +49,7 @@ namespace Kalidocode_Kata1
                     if (!error.Equals("Negative numbers:")) { throw new Exception(error); }
                     return sum;
                 }
-
-            }
+            } // custom delimiters
 
             if (input.Contains(",") || input.Contains("\n"))
             {
@@ -67,12 +65,9 @@ namespace Kalidocode_Kata1
                 return sum;
             }
 
-            
-
-
             else { sum = int.Parse(input); }
-            return sum;
 
+            return sum;
         }
 
         
