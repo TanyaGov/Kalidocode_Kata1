@@ -11,26 +11,59 @@ namespace Kalidocode_Kata1
         public int Add(string input)
         {
             int sum = 0;
+            
             if (string.IsNullOrEmpty(input) || input == " ")
-            { sum = 0; }
-            else if (input.Contains(",") || input.Contains("\n"))
+            { return 0; }
+            
+            if (input.Contains("//"))
             {
-                string[] arrNumbers = input.Split(new string[] {",", "\n"}, StringSplitOptions.RemoveEmptyEntries);
-                sum = GetSum(arrNumbers);
+                int indexAfterSlash = input.LastIndexOf("/") + 1;
+                int indexNextLine = input.IndexOf("\n");
+
+                string delimiters = input.Substring(indexAfterSlash, indexNextLine - indexAfterSlash);
+                string numbers = input.Substring(indexNextLine + 1);
+                
+                if (delimiters.Contains("[") && delimiters.Contains("]"))
+                {
+                   string[] arrDelimiters = delimiters.Split(new string[] { "[", "]" }, StringSplitOptions.RemoveEmptyEntries);
+                   string[] arrNumbers = numbers.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
+                   return GetSum(arrNumbers);
+                }
+                else
+                {
+                    string[] arrNumbers = numbers.Split(delimiters);
+                    return GetSum(arrNumbers);
+                }
             }
 
-            else { sum = Convert.ToInt32(input); }
-            return sum;
+            if (input.Contains(",") || input.Contains("\n"))
+            {
+                string[] arrNumbers = input.Split(new string[] { ",", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                return GetSum(arrNumbers);
+            }
+
+            return Convert.ToInt32(input); 
+           
         }
 
         public int GetSum(string[] arrNumbers)
         {
             int sum = 0;
+            string negatives = "";
             
             foreach (string number in arrNumbers)
             {
-                sum += Convert.ToInt32(number);
+                int num = Convert.ToInt32(number);
+                
+                if ( num >= 0 && num < 1000) 
+                { sum += num; }
+                
+                else if ( num < 0) 
+                { negatives += num + "\t"; }
             }
+
+            if (negatives.Length > 0) 
+            {throw new Exception("Negative numbers found:" + negatives); }
 
             return sum;
         }
