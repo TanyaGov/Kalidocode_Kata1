@@ -74,5 +74,48 @@ namespace CalculatorTest
             Assert.That(sum, Is.EqualTo(367));
         }
 
+        [Test]
+        public void GivenCommas_WhenAdded_ReturnsSum()
+        {
+            // Arrange
+            string input = "92,47,51";
+            Calculator calculator = new Calculator();
+
+            // Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(190));
+        }
+
+        [Test]
+        public void GivenNextLine_WhenAdded_ReturnsSum()
+        {
+            // Arrange
+            string input = "72\n97\n14";
+            Calculator calculator = new Calculator();
+
+            // Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(183));
+        }
+
+        [Test]
+        public void GivenBothNextLineAndCommas_WhenAdded_ReturnsSum()
+        {
+            // Arrange
+            string input = "19,572\n2";
+            Calculator calculator = new Calculator();
+
+            // Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(593));
+        }
+
+
     }
 }
