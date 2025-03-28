@@ -29,6 +29,7 @@ namespace Kalidocode_Kata1
                    string[] arrNumbers = numbers.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
                    return GetSum(arrNumbers);
                 }
+
                 else
                 {
                     string[] arrNumbers = numbers.Split(delimiters);
