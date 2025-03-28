@@ -13,18 +13,24 @@
 
             if (standardDelimiters.Any(input.Contains))
             {
-                int sum = 0;
                 string[] arrNumbers = input.Split(standardDelimiters, StringSplitOptions.RemoveEmptyEntries);
-
-                foreach (string number in arrNumbers) 
-                {
-                    sum += Convert.ToInt32(number);
-                }
-
-                return sum;
+                return GetSum(arrNumbers);
             }
 
             return Convert.ToInt32(input);
+        }
+
+        public int GetSum(string[] arrNumbers)
+        {
+            int sum = 0;
+            List<int> list = new List<int>();
+
+            foreach (string number in arrNumbers)
+            {
+                sum += Convert.ToInt32(number);
+            }
+
+            return sum;
         }
     }
 }
