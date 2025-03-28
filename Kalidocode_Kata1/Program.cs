@@ -4,7 +4,18 @@
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("hello");
+            Console.WriteLine("Please enter numbers:");
+            string input = "";
+            string line = "";
+
+            while ((input = Console.ReadLine()) != null)
+            {
+                line += input;
+            }
+
+            Calculator calculator = new Calculator();
+            int sum = calculator.Add(line);
+            Console.WriteLine(sum);
         }
     }
 }
