@@ -144,5 +144,33 @@ namespace CalculatorTest
             Assert.That(ex.Message, Does.Contain("-2"));
         }
 
+        [Test]
+        public void GivenMultipleNegativeNumbers_WhenAdded_ReturnsError()
+        {
+            //Arrange
+            string input = "2\n-22\n-4,7,8,-17";
+            Calculator calculator = new Calculator();
+
+            //Act 
+            Exception ex = Assert.Throws<Exception>(() => calculator.Add(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-22,-4,-17"));
+        }
+
+        [Test]
+        public void GivenNumberOver1000_WhenAdded_ReturnsSumWithout1000()
+        {
+            //Arrange
+            string input = "1099,7,21";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(28));
+        }
+
     }
 }
