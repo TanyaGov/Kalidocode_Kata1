@@ -88,33 +88,6 @@ namespace CalculatorTest
             Assert.That(sum, Is.EqualTo(91));
         }
 
-        [Test]
-        public void GivenSingleLongDelimiter_WhenAdded_ReturnsSum()
-        {
-            //Arrange
-            string input = "//***\n99***2***101";
-            Calculator calculator = new Calculator();
-
-            //Act
-            int sum = calculator.Add(input);
-
-            //Assert
-            Assert.That(sum, Is.EqualTo(202));
-        }
-
-        [Test]
-        public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
-        {
-            //Arrange
-            string input = "//[***][&][^]\n9***3***3&5^5";
-            Calculator calculator = new Calculator();
-
-            //Act
-            int sum = calculator.Add(input);
-
-            //Assert
-            Assert.That(sum, Is.EqualTo(25));
-        }
 
         [Test]
         public void GivenNumberOver1000_WhenAdded_ReturnsSumWithout1000()
@@ -157,6 +130,35 @@ namespace CalculatorTest
             //Assert
             Assert.That(ex.Message, Does.Contain("-4\t-9\t-5"));
         }
+
+        [Test]
+        public void GivenSingleLongDelimiter_WhenAdded_ReturnsSum()
+        {
+            //Arrange
+            string input = "//***\n99***2***101";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(202));
+        }
+
+        [Test]
+        public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
+        {
+            //Arrange
+            string input = "//[***][&][^]\n9***3***3&5^5";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(25));
+        }
+
 
 
     }
