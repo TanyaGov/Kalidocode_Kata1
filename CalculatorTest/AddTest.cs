@@ -173,6 +173,20 @@ namespace CalculatorTest
         }
 
         [Test]
+        public void GivenSingleLongDelimiter_WhenAdded_ReturnsSum()
+        {
+            //Arrange
+            string input = "//***\n107***3***101";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(211));
+        }
+
+        [Test]
         public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
         {
             //Arrange
