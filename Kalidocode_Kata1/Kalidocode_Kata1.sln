@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35828.75 d17.13
+VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalidocode_Kata1", "Kalidocode_Kata1.csproj", "{80BC7C67-1ACA-436E-85D7-66434F890C87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorTest", "..\CalculatorTest\CalculatorTest.csproj", "{C253891B-B5CE-492B-9FE6-3D1B7615636C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{80BC7C67-1ACA-436E-85D7-66434F890C87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80BC7C67-1ACA-436E-85D7-66434F890C87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80BC7C67-1ACA-436E-85D7-66434F890C87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C253891B-B5CE-492B-9FE6-3D1B7615636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C253891B-B5CE-492B-9FE6-3D1B7615636C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C253891B-B5CE-492B-9FE6-3D1B7615636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C253891B-B5CE-492B-9FE6-3D1B7615636C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
