@@ -5,10 +5,33 @@
         public int Add(string input)
         {
             string[] standardDelimiters = { ",", "\n" };
+            string customDelimiters = "//";
+            string[] customDelimitersSplit = { "[", "]" };
 
             if (string.IsNullOrWhiteSpace(input))
             {
                 return 0;
+            }
+
+            if (input.Contains(customDelimiters))
+            {
+                int indexStartDelimiter = input.LastIndexOf(customDelimiters) + customDelimiters.Length;
+                int indexNextLine = input.IndexOf("\n");
+
+                string delimiters = input.Substring(indexStartDelimiter, indexNextLine - indexStartDelimiter);
+                string numbers = input.Substring(indexNextLine);
+
+                if (customDelimitersSplit.Any(input.Contains))
+                {
+                    string[] arrDelimiters = delimiters.Split(customDelimitersSplit, StringSplitOptions.RemoveEmptyEntries);
+                    string[] arrNumbers = numbers.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
+                    return GetSum(arrNumbers);
+                }
+                else
+                {
+                    string[] arrNumbers = numbers.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+                    return GetSum(arrNumbers);
+                }
             }
 
             if (standardDelimiters.Any(input.Contains))
