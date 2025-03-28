@@ -64,7 +64,7 @@
 
             if (negatives.Any())
             {
-                throw new Exception($"Negative numbers found:{string.Join("\t,", negatives)}");
+                throw new Exception($"Negative numbers found:{string.Join(",", negatives)}");
             }
 
             return sum;
