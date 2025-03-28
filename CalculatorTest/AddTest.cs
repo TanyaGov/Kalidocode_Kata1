@@ -130,6 +130,19 @@ namespace CalculatorTest
             Assert.That(sum, Is.EqualTo(39));
         }
 
+        [Test]
+        public void GivenNegativeNumber_WhenAdded_ReturnsError()
+        {
+            //Arrange
+            string input = "14\n-2\n92";
+            Calculator calculator = new Calculator();
+
+            //Act 
+            Exception ex = Assert.Throws<Exception>(() => calculator.Add(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-2"));
+        }
 
     }
 }
