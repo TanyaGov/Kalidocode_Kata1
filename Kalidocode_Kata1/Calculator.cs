@@ -46,11 +46,25 @@
         public int GetSum(string[] arrNumbers)
         {
             int sum = 0;
-            List<int> list = new List<int>();
+            List<int> negatives = new List<int>();
 
             foreach (string number in arrNumbers)
             {
-                sum += Convert.ToInt32(number);
+                int num = Convert.ToInt32(number);
+
+                if (num >= 0 && num < 1000)
+                {
+                    sum += num;
+                }
+                else if (num < 0)
+                {
+                     negatives.Add(num);
+                }
+            }
+
+            if (negatives.Any())
+            {
+                throw new Exception($"Negative numbers found:{string.Join("\t,", negatives)}");
             }
 
             return sum;
