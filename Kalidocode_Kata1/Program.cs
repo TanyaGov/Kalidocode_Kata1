@@ -10,7 +10,7 @@
 
             while ((input = Console.ReadLine()) != null)
             {
-                line += input;
+                line += input +"\n";
             }
 
             Calculator calculator = new Calculator();

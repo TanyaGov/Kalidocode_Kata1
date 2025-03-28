@@ -13,17 +13,25 @@ namespace Kalidocode_Kata1
             int sum = 0;
             if (string.IsNullOrEmpty(input) || input == " ")
             { sum = 0; }
-            else if (input.Contains(","))
+            else if (input.Contains(",") || input.Contains("\n"))
             {
-                string[] arrNumbers = input.Split(',');
-                foreach (string number in arrNumbers)
-                {
-                    sum += Convert.ToInt32(number);
-                }
-
+                string[] arrNumbers = input.Split(new string[] {",", "\n"}, StringSplitOptions.RemoveEmptyEntries);
+                sum = GetSum(arrNumbers);
             }
 
             else { sum = Convert.ToInt32(input); }
+            return sum;
+        }
+
+        public int GetSum(string[] arrNumbers)
+        {
+            int sum = 0;
+            
+            foreach (string number in arrNumbers)
+            {
+                sum += Convert.ToInt32(number);
+            }
+
             return sum;
         }
 
