@@ -2,7 +2,7 @@
 
 namespace Kalidocode_Kata1Test
 {
-    public class Tests
+    public class AddTests
     {
         [Test]
         public void GivenEmpty_WhenAdded_ReturnsZero()
@@ -138,7 +138,7 @@ namespace Kalidocode_Kata1Test
             Calculator calculator = new Calculator();
 
             //Act 
-            Exception ex = Assert.Throws<Exception>(() => calculator.Add(input));
+            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Add(input));
 
             //Assert
             Assert.That(ex.Message, Does.Contain("-44"));
@@ -152,7 +152,7 @@ namespace Kalidocode_Kata1Test
             Calculator calculator = new Calculator();
 
             //Act 
-            Exception ex = Assert.Throws<Exception>(() => calculator.Add(input));
+            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Add(input));
 
             //Assert
             Assert.That(ex.Message, Does.Contain("-22,-44,-77"));

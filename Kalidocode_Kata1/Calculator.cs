@@ -20,7 +20,7 @@
 
             if (standardDelimiters.Any(input.Contains))
             {
-                string[] arrNumbers = input.Split(standardDelimiters, StringSplitOptions.RemoveEmptyEntries);
+                string[] arrNumbers = input.Split(standardDelimiters, StringSplitOptions.None);
                 return GetSum(arrNumbers);
             }
 
@@ -34,15 +34,12 @@
 
             string delimiters = input.Substring(indexStartDelimiter, indexNextLine - indexStartDelimiter);
             string numbers = input.Substring(indexNextLine);
+            
+            string[] arrDelimiters = (customDelimiterSplit.Any(delimiters.Contains))
+            ? delimiters.Split(customDelimiterSplit, StringSplitOptions.None)
+            : new string[] { delimiters };
 
-            if (customDelimiterSplit.Any(delimiters.Contains))
-            {
-                string[] arrDelimiters = delimiters.Split(customDelimiterSplit, StringSplitOptions.RemoveEmptyEntries);
-                string[] arrCustomNumbers = numbers.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
-                return GetSum(arrCustomNumbers);
-            }
-
-            string[] arrNumbers = numbers.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            string[] arrNumbers = numbers.Split(arrDelimiters, StringSplitOptions.None);
             return GetSum(arrNumbers);
         }
 
@@ -67,7 +64,7 @@
 
             if (negatives.Any()) 
             {
-                throw new Exception($"Negative numbers found:{string.Join(",", negatives)}");
+                throw new ArgumentOutOfRangeException($"Negative numbers found:{string.Join(",", negatives)}");
             }
 
             return sum;
