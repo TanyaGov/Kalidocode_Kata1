@@ -32,5 +32,19 @@ namespace CalculatorTest
             Assert.That(sum, Is.EqualTo(0));
         }
 
+        [Test]
+        public void GivenOneNumber_WhenAdded_ReturnsThatNumber()
+        {
+            //Arrange
+            string input = "92";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(92));
+        }
+
     }
 }
