@@ -15,7 +15,7 @@
 
             if (input.Contains(customDelimiters))
             {
-                int indexStartDelimiter = input.LastIndexOf(customDelimiters) + customDelimiters.Length;
+                int indexStartDelimiter = input.IndexOf(customDelimiters) + customDelimiters.Length;
                 int indexNextLine = input.IndexOf("\n");
 
                 string delimiters = input.Substring(indexStartDelimiter, indexNextLine - indexStartDelimiter);

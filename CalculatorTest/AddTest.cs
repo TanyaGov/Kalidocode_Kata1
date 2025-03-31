@@ -199,6 +199,5 @@ namespace CalculatorTest
             //Assert
             Assert.That(sum, Is.EqualTo(55));
         }
-
     }
 }
