@@ -102,5 +102,18 @@ namespace CalculatorTest
             Assert.That(sum, Is.EqualTo(132));
         }
 
+        [Test]
+        public void GivenSingleCustomDelimiter_WhenAdded_ReturnsSum()
+        {
+            //Arrange
+            string input = "//*\n19*4*16";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(39));
+        }
     }
 }

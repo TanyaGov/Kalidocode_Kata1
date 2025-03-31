@@ -13,9 +13,9 @@
                 return 0;
             }
 
-            if (customDelimiterSplit.Any(input.Contains)) 
+            if (input.Contains(customDelimiter)) 
             {
-             
+                return CustomDelimiters(input);
             }
 
             if (standardDelimiters.Any(input.Contains))
@@ -25,6 +25,20 @@
             }
 
             return Convert.ToInt32(input);
+        }
+
+        public int CustomDelimiters(string input)
+        {
+            int indexStartDelimiter = input.IndexOf(customDelimiter) + customDelimiter.Length;
+            int indexNextLine = input.IndexOf("\n");
+
+            string delimiters = input.Substring(indexStartDelimiter, indexNextLine - indexStartDelimiter);
+            string numbers = input.Substring(indexNextLine);
+
+            
+            string[] arrNumbers = numbers.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
+            return GetSum(arrNumbers);
+            
         }
 
         public int GetSum(string[] arrNumbers)
