@@ -1,4 +1,6 @@
-﻿namespace Kalidocode_Kata1
+﻿using System;
+
+namespace Kalidocode_Kata1
 {
     public class Calculator
     {
@@ -35,10 +37,15 @@
             string delimiters = input.Substring(indexStartDelimiter, indexNextLine - indexStartDelimiter);
             string numbers = input.Substring(indexNextLine);
 
-            
+            if (customDelimiterSplit.Any(delimiters.Contains))
+            {
+                string[] arrDelimiters = delimiters.Split(customDelimiterSplit, StringSplitOptions.RemoveEmptyEntries);
+                string[] arrCustomNumbers = numbers.Split(arrDelimiters, StringSplitOptions.RemoveEmptyEntries);
+                return GetSum(arrCustomNumbers);
+            }
+
             string[] arrNumbers = numbers.Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
             return GetSum(arrNumbers);
-            
         }
 
         public int GetSum(string[] arrNumbers)

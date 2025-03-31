@@ -129,5 +129,19 @@ namespace CalculatorTest
             //Assert
             Assert.That(sum, Is.EqualTo(39));
         }
+
+        [Test]
+        public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
+        {
+            //Arrange
+            string input = "//[***][&][^]\n4***30***6&10^5";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(55));
+        }
     }
 }
