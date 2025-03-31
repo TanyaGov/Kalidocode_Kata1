@@ -131,6 +131,34 @@ namespace CalculatorTest
         }
 
         [Test]
+        public void GivenNegativeNumber_WhenAdded_ReturnsError()
+        {
+            //Arrange
+            string input = "33\n-44\n55";
+            Calculator calculator = new Calculator();
+
+            //Act 
+            Exception ex = Assert.Throws<Exception>(() => calculator.Add(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-44"));
+        }
+
+        [Test]
+        public void GivenMultipleNegativeNumbers_WhenAdded_ReturnsError()
+        {
+            //Arrange
+            string input = "33\n-22\n-44,55,66,-77";
+            Calculator calculator = new Calculator();
+
+            //Act 
+            Exception ex = Assert.Throws<Exception>(() => calculator.Add(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-22,-44,-77"));
+        }
+
+        [Test]
         public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
         {
             //Arrange
