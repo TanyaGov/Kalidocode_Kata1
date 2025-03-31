@@ -47,7 +47,7 @@ namespace CalculatorTest
         }
 
         [Test]
-        public void GivenTwoNumber_WhenAdded_ReturnsSum()
+        public void GivenTwoNumbers_WhenAdded_ReturnsSum()
         {
             //Arrange
             string input = "92,12";
@@ -100,6 +100,20 @@ namespace CalculatorTest
 
             //Assert
             Assert.That(sum, Is.EqualTo(132));
+        }
+
+        [Test]
+        public void GivenUnkownAmountOfNumbers_WhenAdded_ReturnsSumAllNumbers()
+        {
+            // Arrange
+            string input = "33,44,55,66,77,88,99,11,22";
+            Calculator calculator = new Calculator();
+
+            // Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(495));
         }
 
         [Test]
