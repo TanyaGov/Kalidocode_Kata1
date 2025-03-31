@@ -1,4 +1,4 @@
-# Kalidocode String Kata 1
+#📓 Kalidocode String Kata 1
 
 Requirements:
 - Create a simple String calculator with a method int Add(string numbers)
