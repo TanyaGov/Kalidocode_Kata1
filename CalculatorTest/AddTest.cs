@@ -159,6 +159,20 @@ namespace CalculatorTest
         }
 
         [Test]
+        public void GivenNumberOver1000_WhenAdded_ReturnsSumWithout1000()
+        {
+            //Arrange
+            string input = "1111,22,88";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(110));
+        }
+
+        [Test]
         public void GivenMultipleCustomDelimiters_WhenUsingAll_ReturnsSum()
         {
             //Arrange
