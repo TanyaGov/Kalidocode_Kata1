@@ -59,5 +59,19 @@ namespace Kalidocode_Kata1Test
             //Assert
             Assert.That(sum, Is.EqualTo(175));
         }
+
+        [Test]
+        public void GIVEN_UnknownAmountOfNumbers_WHEN_Added_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "27,49,99,22,19,14,91";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(321));
+        }
     }
 }
