@@ -55,19 +55,34 @@
         private int GetSumOfNumbers(string[] arrNumbers)
         {
             List<int> numbers = ConvertStringNumbers(arrNumbers);
+            CheckForNegativeNumbers(numbers);
+            
             int sum = 0;
 
-            foreach (int number in numbers)
-            {
+            foreach (int number in numbers) 
+            { 
                 sum += number;
             }
 
             return sum;
         }
 
-        /*private bool CheckNegativeNumbers()
+        private void CheckForNegativeNumbers(List<int> numbers)
         {
-            return true;
-        }*/
+            string negativeNumbers = "Negative numbers found:\t";
+
+            foreach (int number in numbers)
+            {
+                if (number < 0)
+                {
+                    negativeNumbers += number + ",";
+                }
+            }
+
+            if (!negativeNumbers.Equals("Negative numbers found:\t"))
+            { 
+                throw new ArgumentOutOfRangeException(negativeNumbers);
+            }
+        }
     }
 }

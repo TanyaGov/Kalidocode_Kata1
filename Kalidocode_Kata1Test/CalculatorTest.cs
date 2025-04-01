@@ -115,5 +115,33 @@ namespace Kalidocode_Kata1Test
             //Assert
             Assert.That(sum, Is.EqualTo(175));
         }
+
+        [Test]
+        public void GIVEN_OneNegativeNumber_WHEN_Added_THEN_ReturnsError()
+        {
+            //Arrange
+            string input = "27,49,99,-4";
+            Calculator calculator = new Calculator();
+            
+            //Act 
+            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Add(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-4"));
+        }
+
+        [Test]
+        public void GIVEN_MultipleNegativeNumber_WHEN_Added_THEN_ReturnsError()
+        {
+            //Arrange
+            string input = "27,-9,49,99,-4";
+            Calculator calculator = new Calculator();
+
+            //Act 
+            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.Add(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-9,-4"));
+        }
     }
 }
