@@ -36,7 +36,12 @@
             string delimiters = input.Substring(indexStartDelimiter, delimiterLength);
             string numbers = input.Substring(indexNextLine);
 
-            string[] arrNumbers = numbers.Split(delimiters);
+            string[] arrDelimiters = (MultipleCustomDelimiters.Any(delimiters.Contains))
+            ? delimiters.Split(MultipleCustomDelimiters, StringSplitOptions.None)
+            : new string[] { delimiters };
+
+            string[] arrNumbers = numbers.Split(arrDelimiters, StringSplitOptions.None);
+
             return GetSumOfNumbers(arrNumbers);
         }
 
