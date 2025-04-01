@@ -27,7 +27,7 @@
             return Convert.ToInt32(input);
         }
 
-        private int CustomDelimiters(string input)
+        public int CustomDelimiters(string input)
         {
             int indexStartDelimiter = input.IndexOf(CustomDelimiter) + CustomDelimiter.Length;
             int indexNextLine = input.IndexOf("\n");
@@ -45,7 +45,7 @@
             return GetSumOfNumbers(arrNumbers);
         }
 
-        private List<int> ConvertStringNumbers(string[] arrNumbers)
+        public List<int> ConvertStringNumbers(string[] arrNumbers)
         {
             List<int> numbers = new List<int>();
 
@@ -57,7 +57,7 @@
             return numbers;
         }
 
-        private int GetSumOfNumbers(string[] arrNumbers)
+        public int GetSumOfNumbers(string[] arrNumbers)
         {
             List<int> numbers = ConvertStringNumbers(arrNumbers);
             CheckForNegativeNumbers(numbers);
@@ -75,7 +75,7 @@
             return sum;
         }
 
-        private void CheckForNegativeNumbers(List<int> numbers)
+        public void CheckForNegativeNumbers(List<int> numbers)
         {
             string negativeNumbers = "Negative numbers found:\t";
 

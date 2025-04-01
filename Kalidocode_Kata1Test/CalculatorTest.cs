@@ -171,5 +171,20 @@ namespace Kalidocode_Kata1Test
             //Assert
             Assert.That(sum, Is.EqualTo(188));
         }
+
+        [Test]
+        public void GIVEN_ConvertStringNumbers_WHEN_Called_THEN_ReturnsIntegerNumbersList()
+        {
+            //Arrange
+            string[] input = { "8", "14", "92" };
+            Calculator calculator = new Calculator();
+            List<int> expectedResult = new List<int> { 8, 14, 92 };
+
+            //Act
+            List<int> actualResult = calculator.ConvertStringNumbers(input);
+
+            //Assert
+            Assert.That(actualResult, Is.EqualTo(expectedResult));
+        }
     }
 }
