@@ -17,5 +17,47 @@ namespace Kalidocode_Kata1Test
             //Assert
             Assert.That(sum,Is.EqualTo(0));
         }
+
+        [Test]
+        public void GIVEN_OneNumber_WHEN_Added_THEN_ReturnsThatNumber()
+        {
+            //Arrange
+            string input = "27";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(27));
+        }
+
+        [Test]
+        public void GIVEN_TwoNumbers_WHEN_Added_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "27,49";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(76));
+        }
+
+        [Test]
+        public void GIVEN_Commas_WHEN_Added_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "27,49,99";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(175));
+        }
     }
 }
