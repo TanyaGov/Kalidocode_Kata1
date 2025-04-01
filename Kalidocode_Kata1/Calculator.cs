@@ -2,7 +2,7 @@
 {
     public class Calculator
     {
-        string[] standardDelimiters = { "," };
+        string[] standardDelimiters = { ",", "\n" };
 
         public int Add(string input)
         {
