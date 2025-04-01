@@ -144,6 +144,19 @@ namespace Kalidocode_Kata1Test
             Assert.That(ex.Message, Does.Contain("-9,-4"));
         }
 
+        [Test]
+        public void GIVEN_NumberOver1000_WHEN_Added_THEN_ReturnsSumIgnoringOver1000()
+        {
+            //Arrange
+            string input = "1027,9,49,99,4";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(161));
+        }
 
         [Test]
         public void GIVEN_MultipleCustomDelimiters_WHEN_Added_THEN_ReturnsSum()
