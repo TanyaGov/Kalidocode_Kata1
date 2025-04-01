@@ -101,5 +101,19 @@ namespace Kalidocode_Kata1Test
             //Assert
             Assert.That(sum, Is.EqualTo(175));
         }
+
+        [Test]
+        public void GIVEN_SingleCustomDelimiter_WHEN_Added_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "//*\n27*49*99";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.Add(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(175));
+        }
     }
 }
