@@ -219,14 +219,14 @@ namespace Kalidocode_Kata1Test
         public void GIVEN_CustomDelimiters_WHEN_Called_THEN_ReturnsSum()
         {
             //Arrange
-            string input = "//*\n8*14*92";
+            string input = "//*\n9*14*92";
             Calculator calculator = new Calculator();
 
             //Act
             int sum = calculator.CustomDelimiters(input);
 
             //Assert
-            Assert.That(sum, Is.EqualTo(114));
+            Assert.That(sum, Is.EqualTo(115));
         }
     }
 }
