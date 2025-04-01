@@ -186,5 +186,47 @@ namespace Kalidocode_Kata1Test
             //Assert
             Assert.That(actualResult, Is.EqualTo(expectedResult));
         }
+
+        [Test]
+        public void GIVEN_CheckForNegativeNumbers_WHEN_Called_THEN_ReturnsError()
+        {
+            //Arrange
+            List<int> input = new List<int> { 8, -14, 92 };
+            Calculator calculator = new Calculator();
+
+            //Act 
+            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => calculator.CheckForNegativeNumbers(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-14"));
+        }
+
+        [Test]
+        public void GIVEN_GetSumOfNumbers_WHEN_Called_THEN_ReturnsSum()
+        {
+            //Arrange
+            string[] input = { "8", "14", "92" };
+            Calculator calculator = new Calculator();
+           
+            //Act
+            int sum = calculator.GetSumOfNumbers(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(114));
+        }
+
+        [Test]
+        public void GIVEN_CustomDelimiters_WHEN_Called_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "//*\n8*14*92";
+            Calculator calculator = new Calculator();
+
+            //Act
+            int sum = calculator.CustomDelimiters(input);
+
+            //Assert
+            Assert.That(sum, Is.EqualTo(114));
+        }
     }
 }
