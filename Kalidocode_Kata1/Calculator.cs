@@ -10,5 +10,8 @@
             {
                 sum += number;
             }
+
+            return sum;
+        }
     }
 }
