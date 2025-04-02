@@ -12,7 +12,7 @@
                 if (number < 0)
                 {
                     negativeFound = true;
-                    negativesFoundErrorMessage += number.ToString();
+                    negativesFoundErrorMessage += number.ToString() +",";
                 }
             }
 

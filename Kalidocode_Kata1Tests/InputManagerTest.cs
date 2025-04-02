@@ -91,7 +91,7 @@ namespace Kalidocode_Kata1Tests
         }
 
         [Test]
-        public void GIVEN_UnknownAmountOfNumbers_WHEN_Added_THEN_ReturnsSum()
+        public void GIVEN_UnknownAmountOfNumbers_WHEN_Processed_THEN_ReturnsSum()
         {
             //Arrange
             string input = "10,20,30,40,50,60,70,80,90";
@@ -104,29 +104,66 @@ namespace Kalidocode_Kata1Tests
         }
 
         [Test]
-        public void GIVEN_OneNegativeNumber_WHEN_Added_THEN_ReturnsError()
+        public void GIVEN_SingleCustomDelimiter_WHEN_Processed_THEN_ReturnsSum()
         {
             //Arrange
-            string input = "27,49,99,-21";
+            string input = "//*\n60*40*5";
 
-            //Act 
-            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => manager.ProccessInputAndReturnSum(input));
-
-            //Assert
-            Assert.That(ex.Message, Does.Contain("-21"));
-        }
-
-        [Test]
-        public void GIVEN_Bothe_WHEN_Processed_THEN_ReturnsSum()
-        {
-            //Arrange
-            string input = "//***\n2***5***3***9";
-
-            //Act 
+            //Act
             int result = manager.ProccessInputAndReturnSum(input);
 
             //Assert
-            Assert.That(result, Is.EqualTo(19));
+            Assert.That(result, Is.EqualTo(105));
+        }
+
+        [Test]
+        public void GIVEN_LongSingleCustomDelimiter_WHEN_Processed_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "//***\n60***40***5";
+
+            //Act
+            int result = manager.ProccessInputAndReturnSum(input);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(105));
+        }
+
+        [Test]
+        public void GIVEN_OneNegativeNumber_WHEN_Processed_THEN_ReturnsError()
+        {
+            //Arrange
+            string input = "7,92,47,-21";
+            
+            // Act and Assert
+            Assert.That(() => manager.ProccessInputAndReturnSum(input),
+                              Throws.TypeOf<ArgumentOutOfRangeException>()
+                              .With.Message.Contain("-21"));
+        }
+
+        [Test]
+        public void GIVEN_MultipleNegativeNumber_WHEN_Processed_THEN_ReturnsError()
+        {
+            //Arrange
+            string input = "7,-42,99,-62,-3";
+
+            // Act and Assert
+            Assert.That(() => manager.ProccessInputAndReturnSum(input),
+                              Throws.TypeOf<ArgumentOutOfRangeException>()
+                              .With.Message.Contain("-42,-62,-3"));
+        }
+
+        [Test]
+        public void GIVEN_NumberOver1000_WHEN_Processed_THEN_ReturnsSumIgnoringOver1000()
+        {
+            //Arrange
+            string input = "60,1001,40,5";
+
+            //Act
+            int result = manager.ProccessInputAndReturnSum(input);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(105));
         }
     }
 }
