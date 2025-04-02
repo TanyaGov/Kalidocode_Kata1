@@ -26,7 +26,7 @@ namespace Kalidocode_Kata1Tests
         }
 
         [Test]
-        public void GIVEN_BOneNumber_WHEN_Processed_THEN_ReturnsThatNumber()
+        public void GIVEN_OneNumber_WHEN_Processed_THEN_ReturnsThatNumber()
         {
             //Arrange
             string input = "49";
@@ -88,6 +88,19 @@ namespace Kalidocode_Kata1Tests
 
             //Assert
             Assert.That(result, Is.EqualTo(19));
+        }
+
+        [Test]
+        public void GIVEN_UnknownAmountOfNumbers_WHEN_Added_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "10,20,30,40,50,60,70,80,90";
+
+            //Act
+            int result = manager.ProccessInputAndReturnSum(input);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(450));
         }
 
         [Test]
