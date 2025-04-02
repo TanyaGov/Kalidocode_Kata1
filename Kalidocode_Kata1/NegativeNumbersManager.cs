@@ -26,7 +26,7 @@
 
         public ArgumentOutOfRangeException NegativeNumbersFoundError(string negativesFoundErrorMessage)
         {
-            return new ArgumentOutOfRangeException(negativesFoundErrorMessage);
+            throw new ArgumentOutOfRangeException(negativesFoundErrorMessage);
         }
 
     }

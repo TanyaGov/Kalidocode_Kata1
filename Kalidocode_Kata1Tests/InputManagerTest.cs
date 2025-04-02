@@ -26,6 +26,19 @@ namespace Kalidocode_Kata1Tests
         }
 
         [Test]
+        public void GIVEN_BOneNumber_WHEN_Processed_THEN_ReturnsThatNumber()
+        {
+            //Arrange
+            string input = "49";
+
+            //Act 
+            int result = manager.ProccessInputAndReturnSum(input);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(49));
+        }
+
+        [Test]
         public void GIVEN_TwoNumbers_WHEN_Processed_THEN_ReturnsSum()
         {
             //Arrange
@@ -75,6 +88,19 @@ namespace Kalidocode_Kata1Tests
 
             //Assert
             Assert.That(result, Is.EqualTo(19));
+        }
+
+        [Test]
+        public void GIVEN_OneNegativeNumber_WHEN_Added_THEN_ReturnsError()
+        {
+            //Arrange
+            string input = "27,49,99,-21";
+
+            //Act 
+            Exception ex = Assert.Throws<ArgumentOutOfRangeException>(() => manager.ProccessInputAndReturnSum(input));
+
+            //Assert
+            Assert.That(ex.Message, Does.Contain("-21"));
         }
     }
 }

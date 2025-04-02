@@ -5,6 +5,9 @@
         ConvertStringNumbers numberConverter = new ConvertStringNumbers();
         DelimiterManager delimiterManager = new DelimiterManager();
         Calculator calculator = new Calculator();
+        NegativeNumbersManager negativeNumbersManager = new NegativeNumbersManager();
+
+        public static readonly string[] DelimitersUsed = { ",", "\n", "//"};
 
         public int ProccessInputAndReturnSum (string input) 
         { 
@@ -13,11 +16,15 @@
                 return 0;
             }
 
-            string[] numbers = delimiterManager.ProcessDelimiters(input);
-            List<int> numbersSum = numberConverter.ConvertStringArrayToNumbers(numbers);
-            return calculator.Add(numbersSum);
+            if (DelimitersUsed.Any(input.Contains))
+            {
+                string[] numbers = delimiterManager.ProcessDelimiters(input);
+                List<int> numbersSum = numberConverter.ConvertStringArrayToNumbers(numbers);
+                negativeNumbersManager.CheckForNegativeNumbers(numbersSum);
+                return calculator.Add(numbersSum);
+            }
 
-            throw new ArgumentException("Invalid Input");
+            return numberConverter.ConvertOneNumber(input);
         }
     }
 }
