@@ -8,7 +8,10 @@
 
             foreach (int number in numbers)
             {
-                sum += number;
+                if (number < 1000)
+                {
+                    sum += number;
+                }
             }
 
             return sum;

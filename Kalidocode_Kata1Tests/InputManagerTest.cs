@@ -102,5 +102,18 @@ namespace Kalidocode_Kata1Tests
             //Assert
             Assert.That(ex.Message, Does.Contain("-21"));
         }
+
+        [Test]
+        public void GIVEN_Bothe_WHEN_Processed_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "//***\n2***5***3***9";
+
+            //Act 
+            int result = manager.ProccessInputAndReturnSum(input);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(19));
+        }
     }
 }
