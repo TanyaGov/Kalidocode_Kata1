@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 using Kalidocode_Kata1;
 
 namespace Kalidocode_Kata1Tests
@@ -14,16 +14,16 @@ namespace Kalidocode_Kata1Tests
         }
 
         [Test]
-        public void GIVEN_CAdd_WHEN_Called_THEN_ReturnsConvertedNumber()
+        public void GIVEN_Add_WHEN_Called_THEN_ReturnsSum()
         {
             //Arrange
-            string input = "2";
+            List<int> numbers = new List<int>() { 8, 2, 10 };
 
             //Act 
-            int result = converter.ConvertOneNumber(input);
+            int sum = calculator.Add(numbers);
 
             //Assert
-            Assert.That(result, Is.EqualTo(2));
+            Assert.That(sum, Is.EqualTo(20));
         }
     }
 }
