@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35828.75 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalidocode_Kata1", "Kalidocode_Kata1.csproj", "{C81D5F0D-D2B1-4AC2-9DF9-56803BC7CD6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kalidocode_Kata1Tests", "..\Kalidocode_Kata1Tests\Kalidocode_Kata1Tests.csproj", "{34E0367D-C35C-4DF5-9300-C417C214369C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C81D5F0D-D2B1-4AC2-9DF9-56803BC7CD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C81D5F0D-D2B1-4AC2-9DF9-56803BC7CD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C81D5F0D-D2B1-4AC2-9DF9-56803BC7CD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C81D5F0D-D2B1-4AC2-9DF9-56803BC7CD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34E0367D-C35C-4DF5-9300-C417C214369C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34E0367D-C35C-4DF5-9300-C417C214369C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34E0367D-C35C-4DF5-9300-C417C214369C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34E0367D-C35C-4DF5-9300-C417C214369C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71361B7E-51E6-49EB-9552-C9D1D900A06E}
+	EndGlobalSection
+EndGlobal
