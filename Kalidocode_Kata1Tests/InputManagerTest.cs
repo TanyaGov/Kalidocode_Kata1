@@ -165,5 +165,18 @@ namespace Kalidocode_Kata1Tests
             //Assert
             Assert.That(result, Is.EqualTo(105));
         }
+
+        [Test]
+        public void GIVEN_MultipleCustomDelimiters_WHEN_Added_THEN_ReturnsSum()
+        {
+            //Arrange
+            string input = "//[***][&]\n47***3&5";
+
+            //Act
+            int result = manager.ProccessInputAndReturnSum(input);
+
+            //Assert
+            Assert.That(result, Is.EqualTo(55));
+        }
     }
 }
