@@ -2,7 +2,7 @@
 
 namespace Kalidocode_Kata1Tests
 {
-    public class Tests
+    public class InputManagerTests
     {
         public InputManager manager;
 
@@ -167,7 +167,7 @@ namespace Kalidocode_Kata1Tests
         }
 
         [Test]
-        public void GIVEN_MultipleCustomDelimiters_WHEN_Added_THEN_ReturnsSum()
+        public void GIVEN_MultipleCustomDelimiters_WHEN_Processed_THEN_ReturnsSum()
         {
             //Arrange
             string input = "//[***][&]\n47***3&5";
